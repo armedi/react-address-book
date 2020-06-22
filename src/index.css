@@ -4,3 +4,7 @@
 /* purgecss end ignore */
 
 @tailwind utilities;
+
+body {
+  @apply text-gray-800 bg-cool-gray-100;
+}

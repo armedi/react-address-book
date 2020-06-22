@@ -15,7 +15,7 @@ export const fetchContacts = (page: number = 1) => async (
       `https://randomuser.me/api/?page=${page}&results=50&seed=abc`
     )
     const json = await response.json()
-    dispatch({ type: FETCH_CONTACTS_SUCCESS, contacts: json })
+    dispatch({ type: FETCH_CONTACTS_SUCCESS, contacts: json.results })
   } catch (error) {
     dispatch({ type: FETCH_CONTACTS_FAILURE, message: error.message })
   }
