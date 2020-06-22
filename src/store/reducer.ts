@@ -22,7 +22,11 @@ const reducer = (
     case FETCH_CONTACTS_FAILURE:
       return { ...state, loading: false, error: action.message }
     case FETCH_CONTACTS_SUCCESS:
-      return { ...state, loading: false, data: action.contacts }
+      return {
+        ...state,
+        loading: false,
+        data: state.data.concat(action.contacts),
+      }
     default:
       return state
   }
