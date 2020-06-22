@@ -36,7 +36,8 @@ export interface Contact {
 
 // Describing the state of Address Book
 export interface AddressBookState {
-  data: Contact[]
+  contacts: Record<string, Contact>
+  focusedContact?: string
   error?: string
   loading: boolean
 }
@@ -45,6 +46,7 @@ export interface AddressBookState {
 export const FETCH_CONTACTS_REQUEST = 'FETCH_CONTACTS_REQUEST'
 export const FETCH_CONTACTS_FAILURE = 'FETCH_CONTACTS_FAILURE'
 export const FETCH_CONTACTS_SUCCESS = 'FETCH_CONTACTS_SUCCESS'
+export const SET_FOCUSED_CONTACT = 'SET_FOCUSED_CONTACT'
 
 interface FetchContactsRequestAction {
   type: typeof FETCH_CONTACTS_REQUEST
@@ -60,8 +62,17 @@ interface FetchContactsSuccessAction {
   contacts: Contact[]
 }
 
-// Describing the actions available
+interface SetFocusedContactAction {
+  type: typeof SET_FOCUSED_CONTACT
+  contact: Contact | null
+}
+
 export type FetchContactsActionTypes =
   | FetchContactsRequestAction
   | FetchContactsFailureAction
   | FetchContactsSuccessAction
+
+// Describing the actions available for contacts
+export type ContactsActionType =
+  | FetchContactsActionTypes
+  | SetFocusedContactAction

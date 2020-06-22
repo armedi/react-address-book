@@ -21,6 +21,7 @@
     "@types/react-redux": "^7.1.9",
     "emotion": "^10.0.27",
     "fetch-mock": "^9.10.2",
+    "normalizr": "^3.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",

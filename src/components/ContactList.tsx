@@ -11,11 +11,10 @@ const ContactList: React.FC<{ className?: string }> = ({ className }) => {
     dispatch(fetchContacts())
   }, [dispatch])
 
-  const { data: contacts } = useSelector((state: AppState) => state)
-
+  const { contacts } = useSelector((state: AppState) => state)
   return (
     <div className={className}>
-      {contacts.map((contact) => (
+      {Object.values(contacts).map((contact) => (
         <ContactListItem key={contact.phone} contact={contact} />
       ))}
     </div>
