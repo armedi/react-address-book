@@ -1,17 +1,13 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { keyframes } from '@emotion/core'
-import { cx } from 'emotion'
 import tw, { styled } from 'twin.macro'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { Contact } from '../store/types'
 import { setFocusedContact } from '../store/actions'
 
-const ContactListItem: React.FC<{ contact: Contact; className?: string }> = ({
-  contact,
-  className,
-}) => {
+const ContactListItem: React.FC<{ contact: Contact }> = ({ contact }) => {
   const dispatch = useDispatch()
 
   const handleClick = () => {
@@ -19,7 +15,7 @@ const ContactListItem: React.FC<{ contact: Contact; className?: string }> = ({
   }
 
   return (
-    <Group className={cx('group', 'fle')} onClick={handleClick}>
+    <Group className="group" onClick={handleClick}>
       <img tw="h-14 w-14 rounded-full" src={contact.picture.thumbnail} alt="" />
       <div tw="ml-4 flex-1">
         <p tw="leading-5 font-medium text-gray-700 group-hover:text-gray-900 mb-1">
