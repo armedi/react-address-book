@@ -1,9 +1,19 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import tw, { styled } from 'twin.macro'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { setSearchedName } from '../store/actions'
+import { getSearchedName } from '../store/selectors'
 
 const ContactSearchBox: React.FC = () => {
+  const dispatch = useDispatch()
+  const searchedName = useSelector(getSearchedName)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setSearchedName(e.target.value))
+  }
+
   return (
     <div className="sticky top-4 z-10">
       <Overlay />
@@ -17,7 +27,11 @@ const ContactSearchBox: React.FC = () => {
             <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
           </svg>
         </div>
-        <Input placeholder="John Doe" />
+        <Input
+          placeholder="John Doe"
+          value={searchedName}
+          onChange={handleChange}
+        />
         <div className="absolute inset-y-0 right-0 text-gray-400 text-xl flex items-center pr-4">
           <FontAwesomeIcon icon={faSearch} />
         </div>

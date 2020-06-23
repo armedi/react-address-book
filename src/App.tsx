@@ -12,7 +12,7 @@ const store = configureStore()
 function App() {
   return (
     <Provider store={store}>
-      <div tw="max-w-md mx-auto bg-white p-4">
+      <div tw="max-w-md mx-auto bg-white p-4 min-h-screen">
         <ContactSearchBox />
         <ContactList />
         <ContactDetail />

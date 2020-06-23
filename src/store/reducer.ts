@@ -4,6 +4,7 @@ import {
   FETCH_CONTACTS_FAILURE,
   FETCH_CONTACTS_SUCCESS,
   SET_FOCUSED_CONTACT,
+  SET_SEARCHED_NAME,
   AddressBookState,
   Contact,
   ContactsActionType,
@@ -11,6 +12,8 @@ import {
 
 const initialState = {
   contacts: {},
+  searchedName: '',
+  nextFetchPage: 1,
   error: undefined,
   loading: false,
 }
@@ -32,6 +35,11 @@ const reducer = (
         focusedContact: action.contact
           ? action.contact.cell || action.contact.phone
           : undefined,
+      }
+    case SET_SEARCHED_NAME:
+      return {
+        ...state,
+        searchedName: action.name,
       }
     default:
       return state
@@ -62,5 +70,6 @@ const addContacts = (
     ...state,
     loading: false,
     contacts: Object.assign({}, state.contacts, normalizedContacts),
+    nextFetchPage: state.nextFetchPage + 1,
   }
 }

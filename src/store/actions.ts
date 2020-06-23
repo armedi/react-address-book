@@ -4,13 +4,18 @@ import {
   FETCH_CONTACTS_FAILURE,
   FETCH_CONTACTS_SUCCESS,
   SET_FOCUSED_CONTACT,
+  SET_SEARCHED_NAME,
+  AddressBookState,
   Contact,
   FetchContactsActionTypes,
 } from './types'
+import { getNextPage } from './selectors'
 
-export const fetchContacts = (page: number = 1) => async (
-  dispatch: Dispatch<FetchContactsActionTypes>
+export const fetchContacts = () => async (
+  dispatch: Dispatch<FetchContactsActionTypes>,
+  getState: () => AddressBookState
 ) => {
+  const page = getNextPage(getState())
   try {
     dispatch({ type: FETCH_CONTACTS_REQUEST })
     const response = await fetch(
@@ -34,5 +39,12 @@ export const clearFocusedContact = () => {
   return {
     type: SET_FOCUSED_CONTACT,
     contact: null,
+  }
+}
+
+export const setSearchedName = (name: string) => {
+  return {
+    type: SET_SEARCHED_NAME,
+    name,
   }
 }
