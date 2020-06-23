@@ -54,10 +54,23 @@ const Overlay = styled.div`
     rgba(255, 255, 255, 0.8) 80%,
     rgba(255, 255, 255, 0) 100%
   );
+
+  @media (prefers-color-scheme: dark) {
+    background: linear-gradient(
+      180deg,
+      rgba(22, 30, 46, 1) 0%,
+      rgba(22, 30, 46, 0.8) 80%,
+      rgba(22, 30, 46, 0) 100%
+    );
+  }
 `
 
 const Input = styled.input`
-  ${tw`form-input border-0 block h-12 w-full rounded-md pr-10 pl-12 transition ease-in-out duration-150 focus:outline-none focus:shadow-outline-orange text-lg leading-5 font-medium text-gray-700`}
+  ${tw`
+      form-input border-0 block h-12 w-full rounded-md pr-10 pl-12 transition ease-in-out duration-150
+      focus:outline-none focus:shadow-outline-orange text-lg leading-5 font-medium text-gray-700
+      dark:bg-gray-700 dark:text-gray-300
+  `};
   ::placeholder {
     ${tw`font-normal`}
   }

@@ -21,10 +21,10 @@ const ContactListItem: React.FC<{ contact: Contact }> = ({ contact }) => {
     <Group className="group" onClick={handleClick}>
       <img tw="h-14 w-14 rounded-full" src={contact.picture.thumbnail} alt="" />
       <div tw="ml-4 flex-1">
-        <p tw="leading-5 font-medium text-gray-700 group-hover:text-gray-900 mb-1">
+        <p tw="leading-5 font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-100 mb-1">
           {contact.name.first} {contact.name.last}
         </p>
-        <p tw="text-sm leading-4 font-medium text-gray-500 group-hover:text-gray-700 group-focus:underline transition ease-in-out duration-150">
+        <p tw="text-sm leading-4 font-medium text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300 group-focus:underline transition ease-in-out duration-150">
           {contact.phone}
         </p>
       </div>

@@ -12,7 +12,7 @@ const store = configureStore()
 function App() {
   return (
     <Provider store={store}>
-      <div tw="max-w-screen-md mx-auto bg-white p-4 min-h-screen">
+      <div tw="max-w-screen-md mx-auto light:bg-white dark:bg-gray-900 p-4 min-h-screen">
         <img src={logo} alt="logo" tw="mx-auto" />
         <ContactSearchBox />
         <ContactList />

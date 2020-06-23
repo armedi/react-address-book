@@ -5,6 +5,6 @@
 
 @tailwind utilities;
 
-body {
-  @apply text-gray-800 bg-cool-gray-100;
+:root {
+  color-scheme: light;
 }

@@ -49,7 +49,7 @@ const ContactDetail: React.FC = () => {
       <div tw="w-full max-w-md mx-auto sm:p-4">
         <div
           css={[
-            tw`relative bg-white rounded-lg px-4 pt-5 pb-4 overflow-hidden shadow-xl transform transition-all`,
+            tw`relative bg-white dark:bg-gray-900 rounded-lg px-4 pt-5 pb-4 overflow-hidden shadow-xl transform transition-all`,
             contact
               ? tw`ease-out duration-300 opacity-100 translate-y-0 sm:scale-100`
               : tw`ease-in duration-200 opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95`,
@@ -87,7 +87,7 @@ const ContactDetail: React.FC = () => {
           <div>
             <Image src={contact?.picture.large} alt="profile picture" />
             <div tw="mt-4">
-              <h3 tw="text-lg text-center leading-6 font-medium text-gray-900">
+              <h3 tw="text-lg text-center leading-6 font-medium">
                 {contact?.name.first} {contact?.name.last}
               </h3>
               <span tw="block text-sm text-center text-gray-500">
