@@ -54,6 +54,7 @@ const Group = styled.div`
     ${tw`mb-0`};
   }
   :hover {
+    ${tw`shadow-lg`};
     ${AnimatedIcon} {
       animation: ${backAndForth} 1s ease-in-out infinite;
     }
