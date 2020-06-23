@@ -6,6 +6,9 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { setSearchedName } from '../store/actions'
 import { getSearchedName } from '../store/selectors'
 
+/**
+ * Input for searching contact by name
+ */
 const ContactSearchBox: React.FC = () => {
   const dispatch = useDispatch()
   const searchedName = useSelector(getSearchedName)

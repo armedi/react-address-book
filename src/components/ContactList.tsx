@@ -11,6 +11,11 @@ import { fetchContacts } from '../store/actions'
 import ContactListItem from './ContactListItem'
 import Loading from './Loading'
 
+/**
+ * This component when rendered will trigger fetching of contacts data,
+ * then display them as a list.
+ * Scrolling to bottom end will trigger fetching more data.
+ */
 const ContactList: React.FC = () => {
   const dispatch = useDispatch()
 

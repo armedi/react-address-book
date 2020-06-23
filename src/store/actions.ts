@@ -9,6 +9,9 @@ import {
   FetchContactsActionTypes,
 } from './types'
 
+/**
+ * Fetch paginated contacts data from randomuser.me api
+ */
 export const fetchContacts = (page: number) => async (
   dispatch: Dispatch<FetchContactsActionTypes>
 ) => {
@@ -24,6 +27,9 @@ export const fetchContacts = (page: number) => async (
   }
 }
 
+/**
+ * Set which contact will be displayed in detail
+ */
 export const setFocusedContact = (contact: Contact) => {
   return {
     type: SET_FOCUSED_CONTACT,
@@ -31,6 +37,9 @@ export const setFocusedContact = (contact: Contact) => {
   }
 }
 
+/**
+ * Set the contact that will be displayed in detail to be none
+ */
 export const clearFocusedContact = () => {
   return {
     type: SET_FOCUSED_CONTACT,
@@ -38,6 +47,9 @@ export const clearFocusedContact = () => {
   }
 }
 
+/**
+ * Set value for name that want to be searched
+ */
 export const setSearchedName = (name: string) => {
   return {
     type: SET_SEARCHED_NAME,

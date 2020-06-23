@@ -1,3 +1,8 @@
+/**
+ * This is only used in development.
+ * To mock return data of randomuser.me api
+ */
+
 import fetchMock from 'fetch-mock'
 
 fetchMock.config.fallbackToNetwork = true

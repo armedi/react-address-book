@@ -7,6 +7,9 @@ import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { Contact } from '../store/types'
 import { setFocusedContact } from '../store/actions'
 
+/**
+ * Render each contact item
+ */
 const ContactListItem: React.FC<{ contact: Contact }> = ({ contact }) => {
   const dispatch = useDispatch()
 

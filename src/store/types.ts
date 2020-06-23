@@ -1,4 +1,6 @@
-// Describing the Contact
+/**
+ * Describing the Contact
+ */
 export interface Contact {
   name: {
     title: string
@@ -30,7 +32,9 @@ export interface Contact {
   }
 }
 
-// Describing the state of Address Book
+/**
+ * Describing the state of The App
+ */
 export interface AddressBookState {
   contacts: Record<string, Contact>
   focusedContact?: string
@@ -60,6 +64,9 @@ interface FetchContactsSuccessAction {
   contacts: Contact[]
 }
 
+/**
+ * Describing actions for asynchronous contacts data fetching
+ */
 export type FetchContactsActionTypes =
   | FetchContactsRequestAction
   | FetchContactsFailureAction
@@ -75,7 +82,9 @@ interface SetSearchedNameAction {
   name: string
 }
 
-// Describing the actions available for contacts
+/**
+ * Describing the actions available for contacts
+ */
 export type ContactsActionType =
   | FetchContactsActionTypes
   | SetFocusedContactAction

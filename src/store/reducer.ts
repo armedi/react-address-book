@@ -47,7 +47,9 @@ const reducer = (
 
 export default reducer
 
-// addContacts take new contacts data, normalize it and merge with existing data
+/**
+ * Take existing and new contacts data, normalize it then merge them.
+ */
 const addContacts = (
   state: AddressBookState,
   contacts: Contact[]

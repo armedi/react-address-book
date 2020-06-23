@@ -1,6 +1,9 @@
 import React from 'react'
 import tw, { styled } from 'twin.macro'
 
+/**
+ * Animation to indicate that some process is running
+ */
 const Loading: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <Container className={className}>

@@ -7,6 +7,9 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { clearFocusedContact } from '../store/actions'
 import { getFocusedContact } from '../store/selectors'
 
+/**
+ * Display selected contact detail in a modal
+ */
 const ContactDetail: React.FC = () => {
   const dispatch = useDispatch()
   const contact = useSelector(getFocusedContact)
