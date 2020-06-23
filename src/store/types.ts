@@ -10,6 +10,7 @@ export interface Contact {
     street: string
     city: string
     state: string
+    country: string
     postcode: string
     coordinates: {
       latitude: string

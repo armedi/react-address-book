@@ -50,6 +50,9 @@ const AnimatedIcon = styled(FontAwesomeIcon)`
 
 const Group = styled.div`
   ${tw`mb-3 px-4 py-3 rounded border border-gray-50 shadow flex items-center cursor-pointer`};
+  :last-of-type {
+    ${tw`mb-0`};
+  }
   :hover {
     ${AnimatedIcon} {
       animation: ${backAndForth} 1s ease-in-out infinite;

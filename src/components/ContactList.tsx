@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { AppState } from '../store'
+import { getContacts } from '../store/selectors'
 import { fetchContacts } from '../store/actions'
 import ContactListItem from './ContactListItem'
 
@@ -11,10 +11,10 @@ const ContactList: React.FC<{ className?: string }> = ({ className }) => {
     dispatch(fetchContacts())
   }, [dispatch])
 
-  const { contacts } = useSelector((state: AppState) => state)
+  const contacts = useSelector(getContacts)
   return (
     <div className={className}>
-      {Object.values(contacts).map((contact) => (
+      {contacts.map((contact) => (
         <ContactListItem key={contact.phone} contact={contact} />
       ))}
     </div>
