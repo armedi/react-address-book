@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import InfiniteScroll from 'react-infinite-scroller'
+import 'twin.macro'
 import {
   getContacts,
   getHasMoreToLoad,
@@ -26,7 +27,8 @@ const ContactList: React.FC = () => {
       pageStart={0}
       loadMore={loadMore}
       hasMore={hasMore}
-      loader={<Loading key={0} />}
+      loader={<Loading key={0} tw="sm:col-span-2" />}
+      tw="sm:grid sm:grid-cols-2 sm:col-gap-4"
     >
       {contacts.map((contact) => (
         <ContactListItem key={contact.phone} contact={contact} />

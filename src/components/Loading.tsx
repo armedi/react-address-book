@@ -1,9 +1,9 @@
 import React from 'react'
 import tw, { styled } from 'twin.macro'
 
-const Loading: React.FC = () => {
+const Loading: React.FC<{ className?: string }> = ({ className }) => {
   return (
-    <Container>
+    <Container className={className}>
       <div></div>
       <div></div>
       <div></div>

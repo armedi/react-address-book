@@ -15,9 +15,9 @@ const ContactSearchBox: React.FC = () => {
   }
 
   return (
-    <div tw="sticky top-4 z-10">
+    <div tw="sticky top-0 pt-6 pb-12 z-10">
       <Overlay />
-      <div tw="flex rounded-md shadow-sm mb-6 border border-gray-50 shadow relative flex-grow">
+      <div tw="flex rounded-md shadow-sm border border-gray-50 shadow relative flex-grow max-w-md mx-auto">
         <div tw="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
           <svg
             tw="h-6 w-6 text-gray-400"
@@ -43,12 +43,12 @@ const ContactSearchBox: React.FC = () => {
 export default ContactSearchBox
 
 const Overlay = styled.div`
-  ${tw`h-20 w-full absolute top-0 -m-4`};
+  ${tw`h-32 w-full absolute -mx-4 -mt-6`};
   width: calc(100% + 2rem);
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 86%,
+    rgba(255, 255, 255, 0.8) 80%,
     rgba(255, 255, 255, 0) 100%
   );
 `
