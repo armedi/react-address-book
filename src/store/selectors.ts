@@ -1,10 +1,11 @@
 import { createSelector } from 'reselect'
 import { AddressBookState } from './types'
 
+const maxContacts = Number(process.env.REACT_APP_MAX_CONTACTS)
+
 const getContactsState = (state: AddressBookState) => state.contacts
 const getFocusedContactState = (state: AddressBookState) => state.focusedContact
 export const getSearchedName = (state: AddressBookState) => state.searchedName
-export const getNextPage = (state: AddressBookState) => state.nextFetchPage
 
 export const getContacts = createSelector(
   [getContactsState, getSearchedName],
@@ -22,4 +23,11 @@ export const getFocusedContact = createSelector(
   (contacts, focusedContact) => {
     if (focusedContact) return contacts[focusedContact]
   }
+)
+
+export const getIsSearching = createSelector(getSearchedName, Boolean)
+
+export const getHasMoreToLoad = createSelector(
+  getContactsState,
+  (contacts) => Object.values(contacts).length < maxContacts
 )

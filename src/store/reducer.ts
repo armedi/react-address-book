@@ -13,7 +13,6 @@ import {
 const initialState = {
   contacts: {},
   searchedName: '',
-  nextFetchPage: 1,
   error: undefined,
   loading: false,
 }
@@ -70,6 +69,5 @@ const addContacts = (
     ...state,
     loading: false,
     contacts: Object.assign({}, state.contacts, normalizedContacts),
-    nextFetchPage: state.nextFetchPage + 1,
   }
 }

@@ -1,6 +1,5 @@
 // Describing the Contact
 export interface Contact {
-  gender: string
   name: {
     title: string
     first: string
@@ -22,10 +21,6 @@ export interface Contact {
     }
   }
   email: string
-  dob: {
-    date: string
-    age: number
-  }
   phone: string
   cell: string
   picture: {
@@ -40,7 +35,6 @@ export interface AddressBookState {
   contacts: Record<string, Contact>
   focusedContact?: string
   searchedName: string
-  nextFetchPage: number
   error?: string
   loading: boolean
 }

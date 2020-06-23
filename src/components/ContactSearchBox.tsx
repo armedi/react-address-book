@@ -15,12 +15,12 @@ const ContactSearchBox: React.FC = () => {
   }
 
   return (
-    <div className="sticky top-4 z-10">
+    <div tw="sticky top-4 z-10">
       <Overlay />
-      <div className="flex rounded-md shadow-sm mb-6 border border-gray-50 shadow relative flex-grow">
-        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+      <div tw="flex rounded-md shadow-sm mb-6 border border-gray-50 shadow relative flex-grow">
+        <div tw="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
           <svg
-            className="h-6 w-6 text-gray-400"
+            tw="h-6 w-6 text-gray-400"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -32,7 +32,7 @@ const ContactSearchBox: React.FC = () => {
           value={searchedName}
           onChange={handleChange}
         />
-        <div className="absolute inset-y-0 right-0 text-gray-400 text-xl flex items-center pr-4">
+        <div tw="absolute inset-y-0 right-0 text-gray-400 text-xl flex items-center pr-4">
           <FontAwesomeIcon icon={faSearch} />
         </div>
       </div>

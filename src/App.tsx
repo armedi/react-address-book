@@ -5,7 +5,6 @@ import ContactSearchBox from './components/ContactSearchBox'
 import ContactList from './components/ContactList'
 import ContactDetail from './components/ContactDetail'
 import 'twin.macro'
-import './mocks/randomUser'
 
 const store = configureStore()
 

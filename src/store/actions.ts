@@ -5,21 +5,17 @@ import {
   FETCH_CONTACTS_SUCCESS,
   SET_FOCUSED_CONTACT,
   SET_SEARCHED_NAME,
-  AddressBookState,
   Contact,
   FetchContactsActionTypes,
 } from './types'
-import { getNextPage } from './selectors'
 
-export const fetchContacts = () => async (
-  dispatch: Dispatch<FetchContactsActionTypes>,
-  getState: () => AddressBookState
+export const fetchContacts = (page: number) => async (
+  dispatch: Dispatch<FetchContactsActionTypes>
 ) => {
-  const page = getNextPage(getState())
   try {
     dispatch({ type: FETCH_CONTACTS_REQUEST })
     const response = await fetch(
-      `https://randomuser.me/api/?page=${page}&results=50&seed=abc`
+      `https://randomuser.me/api/?page=${page}&results=50&seed=abc&inc=name,location,email,cell,phone,picture`
     )
     const json = await response.json()
     dispatch({ type: FETCH_CONTACTS_SUCCESS, contacts: json.results })

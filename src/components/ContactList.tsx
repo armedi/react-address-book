@@ -1,23 +1,37 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getContacts } from '../store/selectors'
+import InfiniteScroll from 'react-infinite-scroller'
+import {
+  getContacts,
+  getHasMoreToLoad,
+  getIsSearching,
+} from '../store/selectors'
 import { fetchContacts } from '../store/actions'
 import ContactListItem from './ContactListItem'
+import Loading from './Loading'
 
-const ContactList: React.FC<{ className?: string }> = ({ className }) => {
+const ContactList: React.FC = () => {
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(fetchContacts())
-  }, [dispatch])
+  const loadMore = (page: number) => {
+    dispatch(fetchContacts(page))
+  }
 
   const contacts = useSelector(getContacts)
+  const isSearching = useSelector(getIsSearching)
+  const hasMore = useSelector(getHasMoreToLoad) && !isSearching
+
   return (
-    <div className={className}>
+    <InfiniteScroll
+      pageStart={0}
+      loadMore={loadMore}
+      hasMore={hasMore}
+      loader={<Loading key={0} />}
+    >
       {contacts.map((contact) => (
         <ContactListItem key={contact.phone} contact={contact} />
       ))}
-    </div>
+    </InfiniteScroll>
   )
 }
 
